@@ -18,5 +18,10 @@ while t < 20:
     state = rk4_step(derivatives, t, state, dt)
 
     t += dt
+    
 
 print(history[:5])
+
+import visualization
+
+visualization.show_animation(history)

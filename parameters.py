@@ -10,7 +10,7 @@ L2 = 1.0
 
 # Initial Condition
 theta1 = np.pi / 2
-theta2 = np.pi / 2
+theta2 = np.pi
 
 omega1 = 0.0
 omega2 = 0.0

@@ -21,9 +21,7 @@ def derivatives(t, state):
         omega2**2 * L2
         + omega1**2 * L1 * np.cos(theta1 - theta2)
         )
-    ) / (
-        L1 * (2*m1 + m2 - m2*np.cos(2*theta1 - 2*theta2))
-    )
+    ) / (L1 * (2*m1 + m2 - m2*np.cos(2*theta1 - 2*theta2)))
 
     domega2 = (
         2 * np.sin(theta1 - theta2) * (
@@ -31,9 +29,7 @@ def derivatives(t, state):
             + g * (m1 + m2) * np.cos(theta1)
             + omega2**2 * L2 * m2 * np.cos(theta1 - theta2)
         )
-    ) / (
-        L2 * (2*m1 + m2 - m2*np.cos(2*theta1 - 2*theta2))
-    )
+    ) / (L2 * (2*m1 + m2 - m2*np.cos(2*theta1 - 2*theta2)))
 
     return np.array([
         dtheta1,
