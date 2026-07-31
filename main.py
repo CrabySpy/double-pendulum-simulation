@@ -11,7 +11,7 @@ state = np.array([theta1, theta2, omega1, omega2], dtype=float)
 
 history = []
 
-while t < 20:
+while t < 30:
 
     history.append(state.copy())
 

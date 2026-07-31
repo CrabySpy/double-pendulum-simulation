@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-from parameters import L1, L2
+from parameters import L1, L2, MAX_TRAIL
 
 
 def polar_to_cartesian(theta1, theta2):
@@ -25,11 +25,11 @@ def show_animation(history):
     ax.set_aspect("equal")
 
 
-    rod, = ax.plot([], [], "o-", lw=6)
+    rod, = ax.plot([], [], "o-", lw=2)
 
     mass, = ax.plot([], [], "o", markersize=10)
 
-    trail1, = ax.plot([], [], lw=1.5)
+    trail1, = ax.plot([], [], lw=0.5)
     trail2, = ax.plot([], [], lw=1.5)
 
     trail1_x = []
@@ -39,6 +39,11 @@ def show_animation(history):
     trail2_y = []
 
     def animate(i):
+        if i == 0:
+            trail1_x.clear()
+            trail1_y.clear()
+            trail2_x.clear()
+            trail2_y.clear()
 
         theta1 = history[i][0]
         theta2 = history[i][1]
@@ -59,6 +64,11 @@ def show_animation(history):
         trail1_y.append(y1)
         trail2_x.append(x2)
         trail2_y.append(y2)
+        if len(trail1_x) > MAX_TRAIL:
+            trail1_x.pop(0)
+            trail1_y.pop(0)
+            trail2_x.pop(0)
+            trail2_y.pop(0)
 
         trail1.set_data(trail1_x, trail1_y)
         trail2.set_data(trail2_x, trail2_y)
