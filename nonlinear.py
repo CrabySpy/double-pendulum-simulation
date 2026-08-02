@@ -8,7 +8,7 @@ Integrated numerically using the fourth-order Runge–Kutta (RK4) method.
 import numpy as np
 from parameters import *
 
-def derivatives(t, state):
+def nonlinear_derivatives(t, state):
     theta1, theta2, omega1, omega2 = state
 
     dtheta1 = omega1
